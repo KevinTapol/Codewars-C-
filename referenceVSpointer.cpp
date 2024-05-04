@@ -29,14 +29,30 @@ cout << &a;
 cout << &b;
 cout << &c;
  
+
+Pointers - a value that has an address.
+Key point is to access variable by reference instead of by value.
+Pointers can be mutable, do not need to be initiated once declared, and commonly denoted with lowercase p.
+
+int x = 2;
+int * pX = &x;
+int *z = &y;
+
+Pointer creates a new var that stores the memory location of the reference.
+
+cout << *z;
 */
 
 
 int main(){
 
-    int a = 2;
-    int &b = a;
-    int &c = b;
+    int x = 2;
+    int * pX = &x; // Declare a new value equal to the address of x. When an * is next to a type (in this case int) it points to the address of whatever is on the other side of the equation (in this case the reference of x).
+    int y = *pX; // Copy the value of x to y using a pointer. The integer y is dereferenced to the value of x. When an * is not next to a type ex int, then it means dereference which is go to the address pointed at that address and grab the value.
     // These all point to the same box of what a is equal to. There are no copies. When any of the references are changed, the value is changed.
-    cout << &a << endl; // This will return the address or memory location of a and not the value.
+    cout << x << endl; // This will return the address or memory location of a and not the value.
+    cout << &x << endl;
+    cout << pX << endl;
+    cout << &pX << endl;
+    cout << *pX << endl;
 }
