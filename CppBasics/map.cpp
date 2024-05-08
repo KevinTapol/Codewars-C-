@@ -40,15 +40,46 @@ int main() {
     cout << mp.empty() << endl; // Using the .empty() method will check if the map has no pairs returning a 1 if empty else 0 if pairs exist.
     */
 
+    /*
     // Iterating through a map 
-    
+
+    // Collection data type - data type that stores more than 1 element. Collection data types use iterators. Using .being() creates an iterator object and gives us access to the first iterator object in the map. Since the map does not contain any specific order, we won't know what the first item will be. So, using .begin() we aren't sure where we are going to start. Using .end() lets us know we went through every pair. We can use .begin() and .end() on any collection like a tuple.
+
     map<char, int> mp2 = {
         {'K', 0},
         {'e', 1},
         {'v', 2},
     };
 
+   // Here we are using auto to infer the type instead of using map<char, int>::iterator
+   // for (map<char, int>::iterator itr = mp2.begin(); itr != mp2.end(); itr++) {
     for (auto itr = mp2.begin(); itr != mp2.end(); itr++) {
-
+        cout << (*itr).first << endl; // Using a pointer to dereference the values of the keys in the map.
+        // cout << itr->.first << endl; // -> is shorthand notation for dereferencing as a pointer
     }
+    */
+
+   // Practical Example count the number of occurrences of each letter.
+   // The idea is to have the key as the letter and the value as the number of occurrences.
+   
+   string test = "Hello World, my name is chicka chicka Slim Shady.";
+
+   map<char, int> freq;
+
+   for (int i = 0; i < test.length(); i++) {
+        char letter = test[i];
+        // cout << letter << endl;
+        // increment the key by one each time we find it
+        // freq.find() points to the iterator to the pair in the map that has the key letter
+        if (freq.find(letter) == freq.end()) {
+            freq[letter] = 0;
+        }
+        freq[letter]++; // add 1 to the int value
+        cout << letter << ", " << freq[letter] << endl; // print out each character and how many times they currently occur.
+   }
+
+   
+
+
+
  }
