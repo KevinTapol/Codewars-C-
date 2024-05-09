@@ -75,9 +75,12 @@ int main() {
             freq[letter] = 0;
         }
         freq[letter]++; // add 1 to the int value
-        cout << letter << ", " << freq[letter] << endl; // print out each character and how many times they currently occur.
+        //cout << letter << ", " << freq[letter] << endl; // print out each character and how many times they currently occur.
    }
 
+    for (auto itr = freq.begin(); itr != freq.end(); itr++) { // Auto infers the type for map freq and itr creates the object with each key being used only once.
+        cout << itr->first << ": " << itr->second << endl; // This will print out each char once then how many times they occur.
+    }
    
 
 
