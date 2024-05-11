@@ -20,41 +20,43 @@ int main() {
         cout << "Found C in set s1!" << endl;
     }
     */
-   string string1 = "This is a test of the national checking for set systems. Test go BRRRRrrrrrr!";
+   string string1 = "This is a test of the national checking for set systems. Test go BRRRRrrrrrr! is you could had";
    string string2 = "is you could had";
    set<char> set1;
    set<char> set2;
 
    /*
    Goal is to check to see if all the the chars from the string find exists in the string string1. 
-   In the first for loop, we inserting each unique char from the string string1 to the set named exists.
-   In the 2nd for loop, we are printing out the elements from the set exists.
-   In the 3rd for loop, we inserting each unique char from the string find to the set both.
+   In the first for loop, we inserting each unique char from the string string1 to the set named set1.
+   In the 2nd for loop, we are printing out the elements from the set set1.
+   In the 3rd for loop, we inserting each unique char from the string2 into the set named set2.
+   In the 4th for loop, we are iterating through set1 and removing it from set2. 
+   The if statement checks to see if set2 is empty after removing all of the characters that exist in set1.
    */  
 
    for (int i = 0; i < string1.length(); i++) {
         char letter = string1[i]; // Good practice to define the variable being inserted instead of directly inserting into the loop.
-        set2.insert(letter); // Alternatively you can combine both lines with write exists.insert(string1[i]);
+        set1.insert(letter); // Alternatively you can combine both lines with write exists.insert(string1[i]);
    }
     // iterating through exists set and dereferencing pointers to print out values.
-   for (auto itr = set2.begin(); itr != set2.end(); itr++) {
-        cout << *itr << endl;
+   for (auto itr = set1.begin(); itr != set1.end(); itr++) {
+        // cout << *itr << endl;
    }
     // Assigning the string find's each char to the set named both.
     for (int i = 0; i < string2.length(); i++) {
         char letter = string2[i];
-        set1.insert(letter);
+        set2.insert(letter);
     }
     // Checking to see if chars in set both appear in set exists by removing each char from set named both
     for (int i = 0; i < string1.length(); i++) {
         char letter = string1[i];
-        set1.erase(letter);
+        set2.erase(letter);
     }
 
-    if (set1.size() > 0) {
-        cout << "No, set named string1 does not contain all the chars from set named both.";
+    if (set2.size() > 0) {
+        cout << "No, set named set1 of unique chars from string1 does not contain all the chars from set named set2 of unique chars from string2.";
     } else {
-        cout << "Yeppers!";
+        cout << "Yes, all characters in set2 of unique values from string2 exists in set1 of unique values from string1!";
     }
 
 }
